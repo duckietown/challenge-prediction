@@ -1,0 +1,9 @@
+# challenge name
+challenge: [aido2_simple_prediction_r1]
+# conventions + format
+protocol: simple_predictor
+# any user label - displayed in "challenges list"
+user-label: PredictorMean
+# any JSON payload
+user-payload: {}
+

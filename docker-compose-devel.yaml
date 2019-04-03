@@ -1,0 +1,26 @@
+version: '3'
+services:
+  experiment_manager:
+    environment:
+      DISABLE_CONTRACTS: 1
+      AIDONODE_ENCODING: cbor
+    build:
+      context: ./experiment_manager
+    volumes: &volumes
+      - ./challenges-dir:/challenges
+      - fifos:/fifos
+      - ${DT_ENV_DEVELOPER}/src/aido-protocols/src:/project/src/aido-protocols/src:ro
+      - ${DT_ENV_DEVELOPER}/src/duckietown-challenges/src:/project/src/duckietown-challenges/src:ro
+  #      - ${dt-env-developer}/src/zuper_nodes/src:/project/src/zuper-nodes/src:ro
+  #      - ${dt-env-developer}/src/zuper_json/src:/project/src/zuper-utils/src:ro
+
+  predictor:
+    build:
+      context: ./predictor_random
+    environment:
+      AIDONODE_DATA_IN: /fifos/predictor-in
+      AIDONODE_DATA_OUT: fifo:/fifos/predictor-out
+      AIDONODE_ENCODING: cbor
+    volumes: *volumes
+volumes:
+  fifos:

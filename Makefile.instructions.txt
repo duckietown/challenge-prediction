@@ -1,0 +1,5 @@
+
+
+Set up your DTSERVER variable.
+
+	make -j define-challenges

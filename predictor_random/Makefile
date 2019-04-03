@@ -1,0 +1,4 @@
+
+
+submit:
+	dts challenges submit

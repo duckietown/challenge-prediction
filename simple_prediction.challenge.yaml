@@ -1,0 +1,62 @@
+challenge: aido2_simple_prediction_r1
+
+title: "Simple prediction"
+tags: [aido2, simple_prediction, v4]
+description: |
+  Simple prediction challenge
+
+protocol: simple_predictor
+
+date-open: 2018-12-07
+date-close: 2019-12-07
+
+roles: {}
+
+scoring:
+  scores:
+
+    - name: error_L1
+      short: L1 error
+      description: |
+      order: lower-is-better
+      discretization: 0.01
+    - name: error_L2
+      short: L2 error
+      description: |
+      order: lower-is-better
+      discretization: 0.01
+
+
+
+
+
+steps:
+  step1-simulation:
+    title: Simulation step
+    description: ""
+
+    timeout: 10
+    evaluation_parameters:
+      services:
+        evaluation:
+          build:
+            context: ./experiment_manager
+          environment:
+            DISABLE_CONTRACTS: 1
+            AIDONODE_ENCODING: cbor
+
+        solution:
+          image: SUBMISSION_CONTAINER
+          environment:
+            AIDONODE_DATA_IN: /fifos/predictor-in
+            AIDONODE_DATA_OUT: fifo:/fifos/predictor-out
+            AIDONODE_ENCODING: cbor
+
+
+
+
+transitions:
+  - [START, success, step1-simulation]
+  - [step1-simulation, success, SUCCESS]
+  - [step1-simulation, failed, FAILED]
+  - [step1-simulation, error, ERROR]
