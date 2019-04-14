@@ -7,11 +7,13 @@ import duckietown_challenges as dc
 from aido_schemas.estimation_demo import protocol_simple_predictor
 from zuper_nodes_wrapper.wrapper_outside import ComponentInterface, MsgReceived
 
+
 def get_time_series(N):
     t = np.linspace(0, 10, N)
     alpha = 0.1
-    x = np.sin(alpha*t) + np.random.randn(N) * 0.1
+    x = np.sin(alpha * t) + np.random.randn(N) * 0.1
     return x
+
 
 def main(cie: dc.ChallengeInterfaceEvaluator):
     agent_ci = ComponentInterface(fnin='/fifos/predictor-in',
@@ -25,7 +27,7 @@ def main(cie: dc.ChallengeInterfaceEvaluator):
 
     try:
         seed = 42
-        agent_ci.write('seed', seed)
+        agent_ci.write_topic_and_expect_zero('seed', seed)
 
         N = 100
         N_training = int(N / 2)
@@ -35,17 +37,18 @@ def main(cie: dc.ChallengeInterfaceEvaluator):
         values_training = values[:N_training]
         values_test = values[N_training:]
         for value in values_training:
-            agent_ci.write('observations', value)
+            agent_ci.write_topic_and_expect_zero('observations', value)
 
         guess = []
         truth = []
         for value in values_test:
-            agent_ci.write('get_prediction', None)
-            msg_prediction: MsgReceived[float] = agent_ci.read_one(expect_topic='prediction')
+            msg_prediction: MsgReceived[float] = agent_ci.write_topic_and_expect('get_prediction', None,
+                                                                                 expect='prediction')
+
             guess.append(msg_prediction.data)
 
             truth.append(value)
-            agent_ci.write('observations', value)
+            agent_ci.write_topic_and_expect_zero('observations', value)
 
         truth = np.array(truth)
         guess = np.array(guess)

@@ -2,7 +2,7 @@
 # challenge: [c1,c2]
 
 # conventions + format
-protocol: aido2_simple_predictor
+protocol: aido2_simple_predictor-z2
 # any user label - displayed in "challenges list"
 user-label: PredictorRandom
 # any JSON payload
