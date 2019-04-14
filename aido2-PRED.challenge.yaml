@@ -1,7 +1,7 @@
-challenge: aido2_simple_prediction_r1
+challenge: aido2-PRED
 
 title: "Simple prediction"
-tags: [testing, v4]
+tags: ["aido2", "aido2-testing", "testing", "v4", "z2"]
 description: |
   Simple prediction challenge
 
@@ -10,7 +10,6 @@ protocol: simple_predictor
 date-open: 2018-12-07
 date-close: 2019-12-07
 
-roles: {}
 
 scoring:
   scores:
@@ -27,36 +26,23 @@ scoring:
       discretization: 0.01
 
 
-
-
-
 steps:
   step1-simulation:
     title: Simulation step
     description: ""
 
-    timeout: 10
+    timeout: 120
     evaluation_parameters:
       services:
         evaluation:
           build:
             context: ./experiment_manager
-          environment:
-            DISABLE_CONTRACTS: 1
-            AIDONODE_ENCODING: cbor
 
         solution:
           image: SUBMISSION_CONTAINER
           environment:
             AIDONODE_DATA_IN: /fifos/predictor-in
             AIDONODE_DATA_OUT: fifo:/fifos/predictor-out
-            AIDONODE_ENCODING: cbor
 
 
 
-
-transitions:
-  - [START, success, step1-simulation]
-  - [step1-simulation, success, SUCCESS]
-  - [step1-simulation, failed, FAILED]
-  - [step1-simulation, error, ERROR]

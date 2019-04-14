@@ -1,9 +1,9 @@
 
 define-challenge:
-	dts challenges define --config simple_prediction.challenge.yaml
+	dts challenges define --config aido2-PRED.challenge.yaml
 
 define-challenge-no-cache:
-	dts challenges define --config simple_prediction.challenge.yaml --no-cache
+	dts challenges define --config aido2-PRED.challenge.yaml --no-cache
 
 test-with-local-repos:
 	docker-compose -f docker-compose-devel.yaml down -v
