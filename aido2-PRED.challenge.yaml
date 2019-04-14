@@ -5,7 +5,7 @@ tags: ["aido2", "aido2-testing", "testing", "v4", "z2"]
 description: |
   Simple prediction challenge
 
-protocol: simple_predictor
+protocol: aido2_simple_predictor-z2
 
 date-open: 2018-12-07
 date-close: 2019-12-07

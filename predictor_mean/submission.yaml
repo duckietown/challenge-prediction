@@ -3,7 +3,7 @@
 # challenge: [c1,c2]
 
 # conventions + format
-protocol: simple_predictor
+protocol: aido2_simple_predictor
 # any user label - displayed in "challenges list"
 user-label: PredictorMean
 # any JSON payload
