@@ -1,4 +1,4 @@
-duckietown-challenges-daffy
+duckietown-challenges-daffy>=5.0.7
 
 
 
