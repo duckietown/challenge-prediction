@@ -23,7 +23,7 @@ class PredictorRandom:
         else:
             guess = np.random.choice(self.values)
 
-        context.write('prediction', guess)
+        context.write("prediction", guess)
 
 
 def main():
@@ -32,5 +32,5 @@ def main():
     wrap_direct(node=node, protocol=protocol)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

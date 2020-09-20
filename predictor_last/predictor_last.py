@@ -24,7 +24,7 @@ class PredictorLast:
         else:
             guess = self.values[-1]
 
-        context.write('prediction', guess)
+        context.write("prediction", guess)
 
 
 def main():
@@ -33,5 +33,5 @@ def main():
     wrap_direct(node=node, protocol=protocol)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
