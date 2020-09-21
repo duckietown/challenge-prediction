@@ -64,8 +64,8 @@ def main(cie: dc.ChallengeInterfaceEvaluator):
         cie.set_score("error_L1", error_L1)
         cie.set_score("error_L2", error_L2)
 
-        cid = "QmUNeebf5AxDmhhEVaoz9dKWkS4n1djHsf765aZdW1ubgP"
-        cie.set_evaluation_ipfs_hash("logs", cid)
+        # cid = "QmUNeebf5AxDmhhEVaoz9dKWkS4n1djHsf765aZdW1ubgP"
+        # cie.set_evaluation_ipfs_hash("logs", cid)
     except dc.InvalidSubmission:
         raise
     except BaseException as e:

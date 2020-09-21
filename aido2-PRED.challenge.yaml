@@ -34,7 +34,7 @@ steps:
     timeout: 120
     evaluation_parameters:
       services:
-        evaluation:
+        evaluator:
           build:
             context: ./experiment_manager
 
