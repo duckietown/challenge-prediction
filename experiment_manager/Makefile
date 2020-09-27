@@ -4,7 +4,9 @@ PIP_INDEX_URL ?= https://pypi.org/simple
 
 build_options=\
  	--build-arg AIDO_REGISTRY=$(AIDO_REGISTRY)\
- 	--build-arg PIP_INDEX_URL=$(PIP_INDEX_URL)
+ 	--build-arg PIP_INDEX_URL=$(PIP_INDEX_URL)\
+	$(shell aido-labels)
+
 
 repo=challenge-prediction-experiment_manager
 
