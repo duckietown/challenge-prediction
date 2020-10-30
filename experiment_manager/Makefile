@@ -5,7 +5,7 @@ PIP_INDEX_URL ?= https://pypi.org/simple
 build_options=\
  	--build-arg AIDO_REGISTRY=$(AIDO_REGISTRY)\
  	--build-arg PIP_INDEX_URL=$(PIP_INDEX_URL)\
-	$(shell aido-labels)
+	$(shell dt-labels)
 
 
 repo=challenge-prediction-experiment_manager
@@ -17,7 +17,7 @@ tag=$(AIDO_REGISTRY)/duckietown/$(repo):$(branch)
 
 update-reqs:
 	pur --index-url $(PIP_INDEX_URL) -r requirements.txt -f -m '*' -o requirements.resolved
-	aido-update-reqs requirements.resolved
+	dt-update-reqs requirements.resolved
 
 build: update-reqs
 	docker build --pull -t $(tag) $(build_options) .
@@ -26,5 +26,5 @@ build-no-cache: update-reqs
 	docker build --pull -t $(tag) $(build_options)  --no-cache .
 
 push: build
-	docker push $(tag)
+	dts build_utils push $(tag)
 
