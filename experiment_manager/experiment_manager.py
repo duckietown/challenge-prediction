@@ -25,6 +25,7 @@ def main(cie: dc.ChallengeInterfaceEvaluator):
 
     # check compatibility so that everything
     # fails gracefully in case of error
+    # noinspection PyProtectedMember
     agent_ci._get_node_protocol()
 
     try:
