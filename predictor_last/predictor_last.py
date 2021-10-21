@@ -7,7 +7,7 @@ from aido_schemas.estimation_demo import protocol_simple_predictor
 
 
 class PredictorLast:
-    """ Returns the last observed value as prediction. """
+    """Returns the last observed value as prediction."""
 
     def init(self):
         self.values = []

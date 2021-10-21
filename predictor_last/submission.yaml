@@ -7,4 +7,3 @@ protocol: aido2_simple_predictor-z2
 user-label: PredictorLast
 # any JSON payload
 user-payload: {}
-

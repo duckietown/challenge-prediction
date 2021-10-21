@@ -7,4 +7,3 @@ protocol: aido2_simple_predictor-z2
 user-label: PredictorRandom
 # any JSON payload
 user-payload: {}
-

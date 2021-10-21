@@ -45,4 +45,3 @@ steps:
             AIDONODE_DATA_OUT: fifo:/fifos/predictor-out
 
     uptodate_token: version0
-

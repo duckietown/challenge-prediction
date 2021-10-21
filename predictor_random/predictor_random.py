@@ -6,7 +6,7 @@ from aido_schemas.estimation_demo import protocol_simple_predictor
 
 
 class PredictorRandom:
-    """ Returns a random value as a prediction. """
+    """Returns a random value as a prediction."""
 
     def init(self):
         self.values = []

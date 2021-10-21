@@ -7,7 +7,7 @@ from aido_schemas.estimation_demo import protocol_simple_predictor
 
 
 class PredictorMean:
-    """ Returns the mean of previous values as prediction. """
+    """Returns the mean of previous values as prediction."""
 
     def init(self):
         self.values = []
