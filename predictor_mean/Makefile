@@ -1,8 +1,8 @@
 
 
-submit: update-reqs
+submit:
 	dts challenges submit
 
 
-submit-bea: update-reqs
-	dts challenges submit --impersonate 1639 --retire-same-label
+submit-bea:
+	dts challenges submit --impersonate 1639 --challenge all --retire-same-label
